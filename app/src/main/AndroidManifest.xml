@@ -20,7 +20,8 @@
             android:value="1280"></meta-data>
 
         <!--<activity android:name=".Activity_retrofit">-->
-        <activity android:name=".Activity1">
+        <!--<activity android:name=".Activity1">-->
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

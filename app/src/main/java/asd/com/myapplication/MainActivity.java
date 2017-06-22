@@ -35,7 +35,10 @@ public class MainActivity extends AppCompatActivity {
 //                Log.e("TAG", "asdlfjs....");
 //            }
 //        });
-//
+
+//        loadingAndRetryManager.showContent();
 //        loadingAndRetryManager.showEmpty();
+//        loadingAndRetryManager.showLoading();
+//        loadingAndRetryManager.showRetry();
     }
 }
