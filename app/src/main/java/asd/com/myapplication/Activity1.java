@@ -22,6 +22,7 @@ import java.util.Scanner;
 import asd.com.anim.Rotate3DAnimation;
 import asd.com.fragment.DetailFragment;
 import asd.com.hint.LoadingAndRetryManager;
+import asd.com.widget.TablayoutIndicatorUtil;
 
 public class Activity1 extends AppCompatActivity {
     ViewPager mViewPager;
@@ -54,6 +55,17 @@ public class Activity1 extends AppCompatActivity {
 //        tabLayout.addTab(tabLayout.newTab().setText("作者简介0"));
 //        tabLayout.addTab(tabLayout.newTab().setText("目录0"));
         tabLayout.setupWithViewPager(mViewPager);
+
+//        tabLayout.getTabAt(0).setIcon(R.mipmap.ic_launcher);
+
+        TablayoutIndicatorUtil tablayoutIndicatorUtil = new TablayoutIndicatorUtil(tabLayout);
+        tablayoutIndicatorUtil.init(20, 20);
+        /*tabLayout.post(new Runnable() {
+            @Override
+            public void run() {
+                tablayoutIndicatorUtil.setIndicator(tabLayout, 20, 20);
+            }
+        });*/
 
 
         findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
@@ -114,5 +126,6 @@ public class Activity1 extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             return mFragmentTitles.get(position);
         }
+
     }
 }
