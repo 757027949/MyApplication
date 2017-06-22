@@ -127,5 +127,16 @@ public class Activity1 extends AppCompatActivity {
             return mFragmentTitles.get(position);
         }
 
+        //设置图片
+        /*@Override
+        public CharSequence getPageTitle(int position) {
+            Drawable image = TablayoutActivity.this.getResources().getDrawable(images[position]);
+            image.setBounds(0, 0, image.getIntrinsicWidth()/2, image.getIntrinsicHeight()/2);
+            ImageSpan imageSpan = new ImageSpan(image, ImageSpan.ALIGN_BOTTOM);
+            SpannableString ss = new SpannableString(" "+tabs[position]);
+            ss.setSpan(imageSpan, 0, 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            return ss;
+        }*/
+
     }
 }
