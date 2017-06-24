@@ -1,7 +1,9 @@
 package asd.com.myapplication;
 
+import android.graphics.Canvas;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.ImageView;
@@ -45,8 +47,28 @@ public class Activity_retrofit extends AppCompatActivity implements Callback<Tng
         setContentView(R.layout.activity_retrofit);
         ButterKnife.bind(this);
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this,6);
+        gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int position) {
+                if (1 < position && position < 7) {
+                    return 3;//3代表 当前(position)item占据3列  总6列  所以一行可以放2个
+                } else if (9 < position && position < 19) {//设定position10-18为  三个一行的
+                    return 2;
+                } else {
+                    return 6;
+                }
+            }
+        });
+        recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setHasFixedSize(true);
+        recyclerView.addItemDecoration(new RecyclerView.ItemDecoration() {
+            @Override
+            public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) {
+                super.onDraw(c, parent, state);
+            }
+        });
 
         adapter = new CommonAdapter<Cook>(Activity_retrofit.this, R.layout.layout_retrofig_rxandroid_item, listCooks) {
             @Override
